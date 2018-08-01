@@ -1,8 +1,99 @@
-<footer class="bg-near-black bottom-0 w-100 pa3" role="contentinfo">
+<!-- <footer class="bg-near-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
   <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="{{ .Site.BaseURL }}" >
     &copy; {{ now.Format "2006" }} {{ .Site.Title }}
   </a>
   {{ partial "social-follow.html" . }}
+  </div>
+</footer> -->
+<footer>
+  <div class="wc-container">
+    <div class="wc-footer-start-section wc-flex-container wc-flex-between">
+      <div class="wc-footer-rights wc-text-center display-mobile">
+         © Dr. Kruse + Cie AG, all rights reserved
+      </div>
+      <div class="wc-text-center wc-m-top-1 display-mobile">
+        Kontaktieren Sie uns
+      </div>
+      <ul class="wc-footer-links wc-flex-container">
+        {{ $currentPage := . }}
+        {{ range .Site.Menus.footer.ByWeight.Reverse }}
+          <li class="wc-m-top-1">
+            <a class="wc-uppercase" href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }}</a>
+          </li>
+        {{ end }}
+        <!-- <li class="wc-m-top-1">
+          <a class="wc-uppercase" href="/">für Zahnärtzte + Kliniken</a>
+        </li>
+        <li class="wc-m-top-1">
+          <a class="wc-uppercase" href="/">Datenschutz</a>
+        </li>
+        <li class="wc-m-top-1">
+          <a class="wc-uppercase" href="/">Impressum</a>
+        </li>
+        <li class="wc-m-top-1">
+          <a class="wc-uppercase" href="/">Kontakt</a>
+        </li>
+        <li class="wc-m-top-1">
+          <a class="wc-uppercase" href="/">WHITE</a>
+        </li> -->
+      </ul>
+      <div class="wc-text-center wc-m-top-1 wc-footer-number">
+        <span class="wc-p-1 wc-footer-border display-tablet">
+          Kontaktieren Sie uns
+        </span>
+        <h4 class="wc-color-white">+41 052 351 35 83</h4>
+      </div>
+    </div>
+    <div class="wc-footer-end-section wc-flex-container wc-flex-center wc-flex-between">
+      <div class="wc-language-menu wc-flex wc-flex-center wc-flex-jfy-center wc-p-top-1 wc-p-bottom-1" tabindex="1">
+        <img src="/_nuxt/img/de.713d03c.svg" />
+        <span class="wc-m-left-1-2">Deutchland</span>
+        <img class="wc-menu-arrow wc-m-left-1-2" src="/_nuxt/img/arrow-up.svg" />
+        <ul class="wc-language-menu-list">
+          <li>
+            <a class="wc-flex" href="/">
+              <img src="/_nuxt/img/de.713d03c.svg" />
+              <span class="wc-m-left-1-2">Deutschland</span>
+            </a>
+          </li>
+          <li>
+            <a class="wc-flex" href="/">
+              <img src="/_nuxt/img/ch.b04743e.svg" />
+              <span class="wc-m-left-1-2">Schweiz</span>
+            </a>
+          </li>
+          <li>
+            <a class="wc-flex" href="/">
+              <img src="/_nuxt/img/au.b6ede0f.svg" />
+              <span class="wc-m-left-1-2">Österreich</span>
+            </a>
+          </li>
+          <li>
+            <a class="wc-flex" href="/">
+              <img src="/_nuxt/img/international.6dfc319.svg" />
+              <span class="wc-m-left-1-2">Andere Länder</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="wc-footer-rights wc-text-center display-tablet">
+         © Dr. Kruse + Cie AG, all rights reserved
+      </div>
+      <div class="wc-flex wc-flex-center wc-flex-jfy-center">
+        <a class="social-icon" href="/">
+          <img src="/_nuxt/img/twitter.c966795.svg" />
+        </a>
+        <a class="social-icon wc-m-left-1-2" href="/">
+          <img src="/_nuxt/img/facebook.a02abc6.svg" />
+        </a>
+        <a class="social-icon wc-m-left-1-2" href="/">
+          <img src="/_nuxt/img/instagram.a72eae9.svg" />
+        </a>
+        <a class="social-icon wc-m-left-1-2" href="/">
+          <img src="/_nuxt/img/youtube.424aeb1.svg" />
+        </a>
+      </div>
+    </div>
   </div>
 </footer>

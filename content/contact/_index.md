@@ -7,5 +7,7 @@
   menu:
     main:
       weight: 100
+    footer:
+      weight: 100
 ---
 # Hallo

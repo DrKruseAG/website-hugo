@@ -10,5 +10,8 @@
   menu:
     main:
       weight: 0
+    footer:
+      weight: 0
+
 ---
 # Hallo
