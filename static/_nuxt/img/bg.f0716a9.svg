@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="16px" viewBox="0 0 22 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 7</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M20.2474972,0 L1.63914722,0 C0.733843797,0 0,0.733843797 0,1.63914722 L0,4.77983794 L21.8866444,4.77983794 L21.8866444,1.63914722 C21.8866444,0.733843797 21.1528006,0 20.2474972,0 Z" id="path-1"></path>
+        <filter x="-0.5%" y="-2.1%" width="100.9%" height="104.2%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="0.2" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.661697491   0 0 0 0 0.661697491   0 0 0 0 0.661697491  0 0 0 0.5 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Leistungen-Cards" transform="translate(-765.000000, -3533.000000)" fill-rule="nonzero">
+            <g id="Group-7" transform="translate(765.000000, 3533.000000)">
+                <g id="germany-(1)">
+                    <g id="Shape">
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    </g>
+                    <path d="M0,13.4936319 C0,14.3988926 0.733843797,15.1327791 1.63914722,15.1327791 L20.2474972,15.1327791 C21.1527578,15.1327791 21.8866444,14.3989353 21.8866444,13.4936319 L21.8866444,10.3529412 L0,10.3529412 L0,13.4936319 Z" id="Shape" fill="#D0021B"></path>
+                    <rect id="Rectangle-path" fill="#417505" x="0" y="5.64705882" width="21.8866444" height="4.77958146"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

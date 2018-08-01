@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="43px" height="60px" viewBox="0 0 43 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>014-clipboard</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Leistungen-Cards" transform="translate(-162.000000, -95.000000)" fill-rule="nonzero">
+            <g id="Group-10-Copy-8" transform="translate(144.000000, 63.000000)">
+                <g id="014-clipboard" transform="translate(18.000000, 32.000000)">
+                    <path d="M29.7181641,2.80078125 L29.7181641,0 L12.7037109,0 L12.7037109,2.80078125 L0.0430078125,2.80078125 L0.0430078125,60 L42.3788672,60 L42.3788672,2.80078125 L29.7181641,2.80078125 Z M16.2193359,3.515625 L26.2025391,3.515625 L26.2025391,8.20816406 L16.2193359,8.20816406 L16.2193359,3.515625 Z M33.1658203,11.7237891 L33.1658203,50.7658594 L9.25605469,50.7658594 L9.25605469,11.7237891 L33.1658203,11.7237891 Z M38.8633594,56.484375 L3.55863281,56.484375 L3.55863281,6.31640625 L12.7037109,6.31640625 L12.7037109,8.20816406 L5.74054687,8.20816406 L5.74054687,54.2814844 L36.6814453,54.2814844 L36.6814453,8.20816406 L29.7182812,8.20816406 L29.7182812,6.31640625 L38.8633594,6.31640625 L38.8633594,56.484375 Z" id="Shape" fill="#69BAC2"></path>
+                    <rect id="Rectangle-path" fill="#F2799D" x="12.7699219" y="28.125" width="16.8832031" height="3.515625"></rect>
+                    <rect id="Rectangle-path" fill="#F2799D" x="12.7699219" y="35.3613281" width="16.8832031" height="3.515625"></rect>
+                    <rect id="Rectangle-path" fill="#F2799D" x="12.7699219" y="42.5964844" width="16.8832031" height="3.515625"></rect>
+                    <polygon id="Shape" fill="#F2799D" points="26.7275391 14.3508984 20.5007813 20.4774609 15.9557813 17.3571094 13.9659375 20.2555078 20.9005078 25.01625 29.1932812 16.8569531"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
