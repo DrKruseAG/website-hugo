@@ -1,3 +1,4 @@
+{{ if not .Params.Headless }}
 <!DOCTYPE html>
 <html lang="{{ $.Site.LanguageCode | default "en" }}">
   <head>
@@ -56,3 +57,7 @@
     {{ block "scripts" . }}{{ partial "site-scripts.html" . }}{{ end }}
   </body>
 </html>
+{{ else }}
+  {{ block "main" . }}{{ end }}
+{{ end }}
+

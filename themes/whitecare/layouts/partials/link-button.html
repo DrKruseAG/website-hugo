@@ -1,0 +1,20 @@
+{{ $link := .link }}
+{{ $Site := .Site }}
+{{ $class := .class }}
+{{ $scratch := newScratch }}
+{{ if eq (printf "%T" .) "string" }}
+  {{ $scratch.Set "uri" . }}
+{{ else }}
+  {{ with .link.uri }}
+    {{ $scratch.Set "uri" . }}
+  {{ end }}
+{{ end }}
+{{ with $Site.GetPage ($scratch.Get "uri") }}
+  {{ $scratch.Set "title" .LinkTitle }}
+  {{ if ne (printf "%T" $link) "string" }}
+    {{ with $link.title }}
+      {{ $scratch.Set "title" . }}
+    {{ end }}
+  {{ end }}
+  <a class="wc-btn primary {{ $class }}" href="{{ .RelPermalink }}">{{ $scratch.Get "title" }}</a>
+{{ end }}

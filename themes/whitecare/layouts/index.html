@@ -1,9 +1,9 @@
 {{ define "main" }}
-  {{ .Pages }}
-  {{ range .Pages.ByWeight }}{{ if not .Params.hidden }}
+  {{ $bundle := .Site.GetPage "page" "home_sections" }}
+  {{ range sort ( $bundle.Resources.ByType "page") "Params.weight"  }}
     {{ $partial := printf "%s/%s.html" "section" .Params.Layout  }}
     <section class="{{ .Params.class }}">
       {{ partial $partial . }}
     </section>
-  {{ end }}{{ end }}
+  {{ end }}
 {{ end }}
