@@ -1,8 +1,9 @@
 {{ define "main" }}
   {{ .Pages }}
   {{ range .Pages.ByWeight }}{{ if not .Params.hidden }}
+    {{ $partial := printf "%s/%s.html" "section" .Params.Layout  }}
     <section class="{{ .Params.class }}">
-      {{ partial "icons-row.html" . }}
+      {{ partial $partial . }}
     </section>
   {{ end }}{{ end }}
 {{ end }}
