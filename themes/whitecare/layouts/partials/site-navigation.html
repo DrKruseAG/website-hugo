@@ -3,34 +3,17 @@
     <a class="wc-logo" href="/">
       <img title="white care logo" src="/_nuxt/img/whitecare-logo.16fe290.svg" />
     </a>
-    <div class="mc-hamburger-menu" :class="{ 'active': menu }" @click="toggleMenu">
+    <div class="mc-hamburger-menu">
       <span></span>
       <span></span>
       <span></span>
     </div>
-    <ul class="wc-navbar" :class="{ 'active': menu }">
+    <ul class="wc-navbar">
       {{ $currentPage := . }}
       {{ range .Site.Menus.main.ByWeight.Reverse }}
       <li>
         <a href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }}</a>
       </li>
-      <!--
-        <li>
-          <a href="/steps">so funktioniert es</a>
-        </li>
-        <li>
-          <a href="/services">Leistungen</a>
-        </li>
-        <li>
-          <a href="/pricing">Preise</a>
-        </li>
-        <li>
-          <a href="/drcruse">Dr. Kruse</a>
-        </li>
-        <li class="wc-action-link">
-          <a class="wc-btn secondary-light wc-block" href="/dentists">Für Zahnärzte</a>
-        </li>
-      -->
       {{ end }}
     </ul>
   </div>

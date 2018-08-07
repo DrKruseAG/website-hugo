@@ -10,6 +10,4 @@
   menu:
     main:
       weight: 0
-
 ---
-# Hallo

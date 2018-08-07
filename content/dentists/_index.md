@@ -10,6 +10,8 @@
   menu:
     main:
       weight: 400
+    footer:
+      weight: 5000
 
 ---
 # Hallo

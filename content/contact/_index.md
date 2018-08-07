@@ -6,6 +6,6 @@
     title: "Anfrage Formular"
   menu:
     footer:
-      weight: 100
+      weight: 1000
 ---
 # Hallo
