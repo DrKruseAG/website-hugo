@@ -1,12 +1,10 @@
 ---
   title: Contact
-  linkTitle: Jetz Angebot Anfragen
+  linkTitle: KONTAKT
   header:
     class: contact-header
     title: "Anfrage Formular"
   menu:
-    main:
-      weight: 100
     footer:
       weight: 100
 ---
