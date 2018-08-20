@@ -1,0 +1,11 @@
+<div class="wc-container">
+        <h2>
+            {{ .Title }}
+        </h2>
+        <p class="wc-text-center wc-m-top-2">{{ .Params.description }}</p>
+        
+        {{ if isset .Params "link" }}
+            {{ partial "link-button.html" (dict "link" .Params.link "Site" .Site "class" "wc-m-top-2 wc-m-auto") }}
+        {{ end }}
+    </div>
+    
