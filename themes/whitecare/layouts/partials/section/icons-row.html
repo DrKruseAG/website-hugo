@@ -13,32 +13,6 @@
                 </div>
             </div>
         {{ end }}
-        <!--
-        <div class="wc-col wc-col-6-tablet wc-col-3-desktop">
-            <div class="wc-card-small shadowless">
-                <img class="wc-card-icon" src="~/assets/images/question.svg" />
-                <h4 class="wc-card-title wc-color-grey">1. Online Anfrage</h4>
-            </div>
-        </div>
-        <div class="wc-col wc-col-6-tablet wc-col-3-desktop">
-        <div class="wc-card-small shadowless">
-            <img class="wc-card-icon" src="~/assets/images/theraphy.svg" />
-            <h4 class="wc-card-title wc-color-grey">2. Therapie & Kostenplan</h4>
-        </div>
-        </div>
-        <div class="wc-col wc-col-6-tablet wc-col-3-desktop">
-        <div class="wc-card-small shadowless">
-            <img class="wc-card-icon" src="~/assets/images/travel.svg" />
-            <h4 class="wc-card-title wc-color-grey">3. Reise & Unterkunft</h4>
-        </div>
-        </div>
-        <div class="wc-col wc-col-6-tablet wc-col-3-desktop">
-        <div class="wc-card-small shadowless">
-            <img class="wc-card-icon" src="~/assets/images/tooth-star.svg" />
-            <h4 class="wc-card-title wc-color-grey">4. Behandlungsabschluss</h4>
-        </div>
-        </div>
-        -->
     </div>
     {{ if isset .Params "link" }}
         {{ partial "link-button.html" (dict "link" .Params.link "Site" .Site "class" "wc-m-top-2 wc-m-auto") }}
