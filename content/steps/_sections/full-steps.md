@@ -22,4 +22,5 @@
   link:
     uri: /contact
     title: Los geht´s
+    class: primary wc-m-top-2 wc-m-auto
 ---

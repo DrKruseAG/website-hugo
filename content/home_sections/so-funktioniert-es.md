@@ -14,4 +14,5 @@
   link:
     uri: /contact
     title: Jetzt Angebot Anfragen
+    class: primary wc-m-top-2 wc-m-auto
 ---

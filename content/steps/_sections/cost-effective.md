@@ -6,4 +6,5 @@
   link:
     uri: /contact
     title: Los geht´s
+    class: secondary outlined wc-m-top-2 wc-m-auto
 ---

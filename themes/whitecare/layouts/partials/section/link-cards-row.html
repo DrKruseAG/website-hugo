@@ -30,6 +30,6 @@
         {{ end }}
     </div>
     {{ if isset .Params "link" }}
-        {{ partial "link-button.html" (dict "link" .Params.link "Site" .Site "class" "wc-m-top-2 wc-m-auto") }}
+        {{ partial "link-button.html" (dict "link" .Params.link "Site" .Site "class" .Params.link.class) }}
     {{ end }}
 </div>

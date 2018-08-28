@@ -16,5 +16,5 @@
       {{ $scratch.Set "title" . }}
     {{ end }}
   {{ end }}
-  <a class="wc-btn primary {{ $class }}" href="{{ .RelPermalink }}">{{ $scratch.Get "title" }}</a>
+  <a class="wc-btn {{ $class }}" href="{{ .RelPermalink }}">{{ $scratch.Get "title" }}</a>
 {{ end }}

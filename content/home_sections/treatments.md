@@ -23,4 +23,5 @@
   link:
     uri: /services
     title: MEHR AUSWAHL
+    class: primary wc-m-top-2 wc-m-auto
 ---

@@ -49,7 +49,7 @@
 
   <body class="ma0 {{ $.Param "body_classes"  | default "avenir bg-near-white"}}{{ with getenv "HUGO_ENV" }} {{ . }}{{ end }}">
     {{ partial "site-navigation.html" . }}
-    <main class="pb7" role="main">
+    <main class="pb7 gradient-bottom" role="main">
       {{ block "header" . }}{{ partial "page-header.html" .}}{{ end }}
       {{ block "main" . }}{{ end }}
     </main>

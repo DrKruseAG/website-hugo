@@ -1,0 +1,36 @@
+<div class="wc-container content">
+    {{ with .Title }}
+    <h2>
+        {{ .Title }}
+    </h2>
+    {{ end }}
+    {{ with .Params.description }}
+    <p class="wc-text-center wc-m-top-2">{{ .Params.description }}</p>
+    {{ end }}
+    <div class="wc-columns wc-flex-wrap wc-flex-center wc-m-top-1">
+        {{ range .Params.Items }}
+            <div class="wc-col wc-col-6-tablet wc-col-3-desktop">
+                <div class="wc-card card-centered wc-flex wc-flex-col wc-flex-between">
+                    <img class="wc-card-icon" src="/img/{{ .icon }}" />
+                    {{ with .title }}
+                        <h3 class="wc-card-title">{{ . }}</h3>
+                    {{ end }}
+                    {{ range .descriptionSet }}
+                        <p class="wc-card-description {{ .class }}">
+                            {{ .text }}
+                        </p>
+                    {{ end }}
+                    {{ with .subTitle }}
+                        <h4 class="wc-card-big-title">{{ . }}</h4>
+                    {{ end }}
+                    {{ with .link }}
+                        <a class="wc-btn {{ .class }}" href="{{ .uri }}">{{ .title }}</a>
+                    {{ end }}
+                </div>
+            </div>
+        {{ end }}
+    </div>
+    {{ if isset .Params "link" }}
+        {{ partial "link-button.html" (dict "link" .Params.link "Site" .Site "class" .Params.link.class) }}
+    {{ end }}
+</div>
