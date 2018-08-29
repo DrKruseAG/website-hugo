@@ -1,9 +1,11 @@
-<div class="wc-container">
+<div class="wc-container {{ .Params.containerClass }}">
     <h2>
         {{ .Title }}
     </h2>
     <p class="wc-text-center wc-m-top-2">{{ .Params.description }}</p>
-    
+    {{ if isset .Params "list" }}
+        {{ partial "ul-list.html" (dict "list" .Params.list) }}
+    {{ end }}
     {{ if isset .Params "link" }}
         {{ partial "link-button.html" (dict "link" .Params.link "Site" .Site "class" .Params.link.class) }}
     {{ end }}

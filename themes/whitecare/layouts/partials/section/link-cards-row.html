@@ -8,7 +8,9 @@
             <div class="wc-col wc-col-6-tablet wc-col-3-desktop">
                 <a href="/" class="wc-card wc-flex wc-flex-col wc-flex-between">
                     <div>
-                        <img class="icon-image" src="/img/{{ .icon }}" />
+                        {{ with .icon }}
+                        <img class="icon-image" src="/img/{{ . }}" />
+                        {{ end }}
                         {{ with .title }}
                             <h4 class="wc-m-top-1">{{ . }}</h4>
                         {{ end }}
