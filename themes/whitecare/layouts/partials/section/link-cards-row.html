@@ -4,8 +4,14 @@
     </h2>
     <p class="wc-text-center wc-m-top-2">{{ .Params.description }}</p>
     <div class="wc-columns wc-flex-wrap wc-m-top-2">
+        {{ $scratch := newScratch }}
+        {{ $scratch.Set "col-class" "wc-col-6-tablet wc-col-3-desktop" }}
+        {{ if isset .Params "colclass" }}
+            {{ $scratch.Set "col-class" .Params.colclass }}
+        {{ end }}
+        {{ $colClass := $scratch.Get "col-class" }}
         {{ range .Params.Items }}
-            <div class="wc-col wc-col-6-tablet wc-col-3-desktop">
+            <div class="wc-col {{ $colClass }}">
                 <a href="/" class="wc-card wc-flex wc-flex-col wc-flex-between">
                     <div>
                         {{ with .icon }}

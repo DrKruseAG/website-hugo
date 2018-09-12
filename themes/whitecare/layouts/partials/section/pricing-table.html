@@ -1,0 +1,275 @@
+<div class="wc-container">
+    <div class="wc-columns wc-flex-wrap wc-m-top-2">
+        <div class="wc-col wc-col-12 wc-col-4-desktop">
+            <div class="wc-card-shadow height-auto wc-flex wc-flex-col wc-flex-between wc-p-1">
+                <!-- FILTER PRICES BY COUNTRY -->
+                <div>
+                    <p>Land</p>
+                    <div class="wc-select wc-country-select">
+                        <div class="wc-select-content">
+                            <img class="wc-select-icon" src="/img/de.svg" />
+                            <span class="wc-select-value">Deutschland</span>
+                        </div>
+                        <img src="/img/arrow-down.svg" />
+                        <ul class="wc-select-menu wc-country-menu">
+                            <li data-select-item="de">
+                                <img class="wc-select-icon" src="/img/de.svg" />
+                                <span class="wc-select-value">Deutschland</span>
+                            </li>
+                            <li data-select-item="au">
+                                <img class="wc-select-icon" src="/img/au.svg" />
+                                <span class="wc-select-value">Österreich</span>
+                            </li>
+                            <li data-select-item="ch">
+                                <img class="wc-select-icon" src="/img/ch.svg" />
+                                <span class="wc-select-value">Schweiz</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- FILTER BY PROCEDURE -->
+                <div class="wc-m-top-2">
+                    <p>Leistung</p>
+                    <div class="wc-select wc-procedure-select">
+                        <div class="wc-select-content">
+                            <span class="wc-select-value wc-selected-value">All procedures</span>
+                        </div>
+                        <img src="/img/arrow-down.svg" />
+                        <ul class="wc-select-menu wc-procedure-menu">
+                            <li data-select-item="all">
+                                <span class="wc-select-value">All procedures</span>
+                            </li>
+                            {{ with .Params.pricings }}
+                                {{ range . }}
+                                    <li data-select-item="{{ .id }}">
+                                        <span class="wc-select-value">{{ .title }}</span>
+                                    </li>
+                                {{ end }}
+                            {{ end }}
+                        </ul>
+                    </div>
+                </div>
+                <!-- FILTERED VALUES -->
+                <div class="wc-pricing-filtered wc-m-top-2">
+                    <p>berechneter Preis</p>
+                    <div class="wc-pricing-filtered">
+                        <div class="wc-pricing-country">
+                            <span class="country">
+                                in Deutschland
+                            </span>
+                            <div>
+                                <span class="price">€500</span>
+                                <span class="small">je Sitzung</span>
+                            </div>
+                        </div>
+                        <div class="wc-pricing-compared">
+                            <span class="country">
+                                in Bulgarien
+                            </span>
+                            <span class="discount">
+                                -50%
+                            </span>
+                            <div>
+                                <span class="price">€250</span>
+                                <span class="small">je Sitzung</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wc-col wc-col-12 wc-col-8-desktop">
+            <div class="wc-card-shadow height-auto wc-flex wc-flex-col wc-flex-between">
+                <table class="wc-table wc-pricing-table">
+                    <thead class="wc-table-head">
+                        <tr>
+                            <th data-country-name="title">Leistung</th>
+                            <th data-country-name="de">
+                                <div>
+                                    <span>DE</span>
+                                    <img src="/img/de.svg" />
+                                </div>
+                            </th>
+                            <th data-country-name="au" class="hidden">
+                                <div>
+                                    <span>ÖS</span>
+                                    <img src="/img/au.svg" />
+                                </div>
+                            </th>
+                            <th data-country-name="ch" class="hidden">
+                                <div>
+                                    <span>CH</span>
+                                    <img src="/img/ch.svg" />
+                                </div>
+                            </th>
+                            <th data-country-name="bg">
+                                <div>
+                                    <span>BG</span>
+                                    <img src="/img/bg.svg" />
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="wc-table-body">
+                        {{ with .Params.pricings }}
+                            {{ range . }}
+                                <tr data-id="{{ .id }}" data-de-price="{{ .de }}" data-au-price="{{ .au }}" data-ch-price="{{ .ch }}" data-bg-price="{{ .bg }}" data-discount="50%">
+                                    <td>{{ .title }}</td>
+                                    <td>{{ .de }}</td>
+                                    <td class="hidden">{{ .au }}</td>
+                                    <td class="hidden">{{ .ch }}</td>
+                                    <td class="wc-bg-secondary-light">{{ .bg }}</td>
+                                </tr>
+                            {{ end }}
+                        {{ end }}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const generateClickHandler = (callback) => (event) => {
+        let el = event.target.closest('li');
+        const icon = el.querySelectorAll('img')[0];
+        let iconPath;
+        if (icon)
+            iconPath = el.querySelectorAll('img')[0].src;
+        callback(el ? { value: el.dataset.selectItem, select: el.textContent, iconPath } : null);
+    };
+
+    class PriceFilter {
+        constructor(filterContainer, countryMenu, countryMenuSelect, procedureMenu, procedureSelectedLabel, tableRows, tableHeaders, tableMapings) {
+            this.filterContainer = filterContainer;
+            this.countryMenu = countryMenu;
+            this.countryMenuSelect = countryMenuSelect;
+            this.procedureMenu = procedureMenu;
+            this.procedureSelectedLabel = procedureSelectedLabel;
+            this.tableHeaders = Array.prototype.slice.call(tableHeaders);
+            this.tableRows = Array.prototype.slice.call(tableRows);
+            this.tableMapings = tableMapings;
+
+            this.currentCountry = null;
+            this.currentProcedure = null;
+
+            this.countryMenuHandler = generateClickHandler(country => this.setFilter({ country }));
+            this.procedureMenuHandler = generateClickHandler(procedure => this.setFilter({ procedure }));
+
+            this.countryMenu.addEventListener('click', this.countryMenuHandler);
+            this.procedureMenu.addEventListener('click', this.procedureMenuHandler);
+        }
+        destroy() {
+            this.countryMenu.removeEventListener('click', this.countryMenuHandler);
+            this.procedureMenu.removeEventListener('click', this.procedureMenuHandler);
+            this.filterContainer = null;
+            this.countryMenuSelect = null;
+            this.countryMenu = null;
+            this.procedureMenu = null;
+            this.procedureSelectedLabel = null;
+            this.tableHeaders = null;
+            this.tableRows = null;
+            this.tableMapings = null;
+
+            this.countryMenuHandler = null;
+            this.procedureMenuHandler = null;
+            this.currentCountry = null;
+            this.currentProcedure = null;
+        }
+        setFilter({ country = this.currentCountry, procedure = this.currentProcedure }) {
+
+            this.currentCountry = country;
+            this.currentProcedure = procedure;
+            if (!!this.currentCountry) {
+                this.countryMenuSelect.querySelectorAll(".wc-select-content .wc-select-value")[0].textContent = this.currentCountry.select;
+                this.countryMenuSelect.querySelectorAll(".wc-select-content .wc-select-icon")[0].src = this.currentCountry.iconPath;
+                if (!(window.matchMedia("(min-width: 768px)").matches)) {
+
+                    this.tableHeaders.forEach(th => {
+                        th.classList.add('hidden');
+                        if (th.dataset.countryName === this.currentCountry.value ||
+                            th.dataset.countryName === 'bg' ||
+                            th.dataset.countryName === 'title')
+                            th.classList.remove('hidden');
+                    });
+
+                    this.tableRows.forEach(tr => {
+                        tr.querySelectorAll('td').forEach((td, index) => {
+                            if (this.tableMapings[this.currentCountry.value] === index || index === 0 || index === 4)
+                                td.classList.remove('hidden');
+                            else
+                                td.classList.add('hidden');
+                        });
+                    });
+
+                }
+            }
+            if (!!this.currentProcedure) {
+                this.procedureSelectedLabel.textContent = this.currentProcedure.select;
+                if (this.currentProcedure.value === 'all') {
+                    this.tableRows.forEach(tr => tr.classList.remove('hidden'));
+                } else {
+                    const tr = this.tableRows.find(row => row.dataset.id === this.currentProcedure.value);
+                    this.tableRows.forEach(tr => tr.classList.add('hidden'));
+                    if (tr)
+                        tr.classList.remove('hidden');
+                }
+            }
+            if (!!this.currentCountry && !!this.currentProcedure && this.currentProcedure.value !== "all") {
+                this.filterContainer.querySelectorAll(".wc-pricing-country .country")[0].textContent = this.currentCountry.select;
+                const countryRow = this.tableRows.find(row => row.dataset.id === this.currentProcedure.value);
+                const price = countryRow.dataset[`${this.currentCountry.value}Price`];
+                const bgPrice = countryRow.dataset[`bgPrice`];
+                const discount = countryRow.dataset[`discount`];
+                this.filterContainer.querySelectorAll(".wc-pricing-country .price")[0].textContent = price;
+                this.filterContainer.querySelectorAll(".wc-pricing-compared .price")[0].textContent = bgPrice;
+                this.filterContainer.querySelectorAll(".wc-pricing-compared .discount")[0].textContent = discount;
+            }
+        }
+    }
+
+    const selectClickHandler = function () {
+        if (this.classList.contains('active'))
+            return this.classList.remove('active');
+        return this.classList.add('active');
+    };
+
+    const filterContainer = document.querySelectorAll(".wc-pricing-filtered")[0];
+    const countryMenu = document.querySelectorAll(".wc-country-menu")[0];
+    const countryMenuSelect = document.querySelectorAll(".wc-country-select")[0];
+    const procedureMenu = document.querySelectorAll(".wc-procedure-menu")[0];
+    const procedureSelectedLabel = document.querySelectorAll(".wc-procedure-select .wc-selected-value")[0];
+
+    const tableRows = document.querySelectorAll(".wc-pricing-table tbody tr");
+    const tableHeaders = document.querySelectorAll(".wc-pricing-table thead th");
+    const tableMappings = {
+        'de': 1,
+        'au': 2,
+        'ch': 3,
+    };
+
+    const PricingsFilter = new PriceFilter(
+        filterContainer,
+        countryMenu,
+        countryMenuSelect,
+        procedureMenu,
+        procedureSelectedLabel,
+        tableRows,
+        tableHeaders,
+        tableMappings
+    );
+
+    const selects = document.querySelectorAll(".wc-select");
+    selects.forEach((element) => {
+        if (element)
+            element.addEventListener("click", selectClickHandler.bind(element));
+    });
+
+
+    // selects.forEach((element) => {
+    //     if (element)
+    //     element.removeEventListener("click", selectClickHandler);
+    // });
+
+    // PricingsFilter.destroy();
+</script>

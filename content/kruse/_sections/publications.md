@@ -1,6 +1,7 @@
 ---
   title: Veröffentlichungen
   layout: link-cards-row
+  colclass: wc-col-6-tablet
   items:
     - description: "“Ein neues Planungs- und Navigationssystem für die dentale Implantologie”, Weihe S., Franz E.P., Bonitz L., Hassfeld S., Kruse Ch. - DZW Orale Implantol. 03(2006);pp. 6-10"
       linkText: Hier Downloaden

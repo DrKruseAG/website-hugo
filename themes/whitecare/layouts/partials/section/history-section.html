@@ -1,0 +1,30 @@
+<div class="wc-container wc-flex-container">
+    <div class="wc-flex-1 wc-p-right-1">
+        {{ with .Params.historycontent }}
+            <h2>{{ .title }}</h2>
+            {{ range .description }}
+            <p class="wc-m-top-2">
+                {{ . }}
+            </p>
+            {{ end }}
+        {{ end }}
+    </div>
+    <div class="wc-flex-1 wc-m-top-2-mobile">
+        {{ with .Params.history }}
+            <h2>{{ .title }}</h2>
+            <div class="wc-timeline wc-m-top-2">
+                {{ range .timeline }}
+                <div class="wc-timeline-item">
+                    <span class="timeline-year">
+                        {{ .year }}
+                    </span>
+                    <span class="timeline-title">
+                        {{ .title }}
+                    </span>
+                </div>
+                {{ end }}
+            </div>
+        {{ end }}
+    </div>
+</div>
+    
